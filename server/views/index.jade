@@ -1,0 +1,170 @@
+extends ./includes/layout
+block main
+    // carousel here
+    #myCarousel.carousel.slide
+      // Indicators
+      ol.carousel-indicators
+        li.active(data-target='#myCarousel', data-slide-to='0')
+        |     
+        li(data-target='#myCarousel', data-slide-to='1')
+        |     
+        li(data-target='#myCarousel', data-slide-to='2')
+      // Wrapper for slides
+      .carousel-inner
+        .item.active
+          img.img-responsive(src='slide_1.jpg', alt='Sale 1')
+          |       
+          .carousel-caption
+            // caption here
+        |     
+        .item
+          img.img-responsive(src='slide_2.jpg', alt='Sale 2')
+          |       
+          .carousel-caption
+            // caption here
+      // Controls
+      a.carousel-control.left(href='#myCarousel', data-slide='prev')
+        span.icon-prev
+      |   
+      a.carousel-control.right(href='#myCarousel', data-slide='next')
+        span.icon
+      |   
+      a.carousel-control.right(href='#myCarousel', data-slide='next')
+        span.icon
+    // div Carousel ends here
+    // feature items heading
+    .section-header
+      h2.section-header-title.h4(style='margin-top: 35px;')
+        | featured items
+    // heading ends
+    hr.hr--clear
+    // Container for items
+    .container
+      // product type 1
+      .row
+        .col-md-4
+          .box
+            img(src='http://cdn.shopify.com/s/files/1/0695/9547/products/Dell_Latitude_E4300_Laptop_1024x1024.jpeg?v=1421189962', width='140', height='140')
+            |         
+            p
+              a(href='') Dell Latitude E4300 Refurbished Laptop
+              br
+              | $245
+            |             
+            button.buy Shop Now
+        |    
+        |    
+        .col-md-4
+          .box
+            img(src='http://cdn.shopify.com/s/files/1/0695/9547/products/HP_255_Ubuntu_Laptop_1024x1024.jpeg?v=1421190061', width='140', height='140')
+            |         
+            p
+              a(href='#') HP 255 UBUNTU
+              br
+              | $350.00
+            |  
+            |             
+            button.buy Shop Now
+        |  
+        .col-md-4
+          .box
+            img(src='http://cdn.shopify.com/s/files/1/0695/9547/products/621591-645880-800_large.jpeg?v=1421190099', width='140', height='140')
+            |         
+            p
+              a(href='#') Lenovo Thinkpad B50
+              br
+              | $229.00
+            |  
+            |             
+            button.buy  Shop Now
+      br
+      // product type 2
+      .row
+        .col-md-4
+          .box
+            img(src='http://n1.sdlcdn.com/imgs/a/0/z/166x194/Xolo-Hive-8x-1000i-16-SDL928930849-1-7e6f4.jpg', width='140', height='140')
+            |         
+            p
+              a(href='') Xolo-Hive-8x-1000i-16 GB
+              br
+              |   $100
+            |             
+            button.buy  Shop Now
+        |    
+        |    
+        .col-md-4
+          .box
+            img(src='http://n1.sdlcdn.com/imgs/a/0/b/166x194/Apple-iPhone-6-16-GB-SDL691711090-1-6d93d.jpg', width='140', height='140')
+            |         
+            p
+              a(href='#') Apple iPhone 6 16 GB
+              br
+              | $169.00
+            |  
+            |             
+            button.buy Shop Now
+        |  
+        .col-md-4
+          .box
+            img(src='http://n3.sdlcdn.com/imgs/a/w/o/166x194/nokia1-a4261.jpg', width='140', height='140')
+            |         
+            p
+              a(href='#')
+                | Nokia Lumia 630 Single 
+                br
+                | SIM 8GB Black
+              br
+              | $90.00
+            |  
+            |             
+            button.buy  Shop Now
+      // product type 3
+      .row
+        .col-md-4
+          .box
+            img(src='http://cdn.shopify.com/s/files/1/0695/9547/products/Cherry_USB_Mouse_large.jpeg?v=1432236144', width='140', height='140')
+            |         
+            p
+              a(href='') Cherry USB Mouse
+              br
+              | $5.99
+            |             
+            a(href='#')
+              button.buy Shop Now
+        |    
+        |    
+        .col-md-4
+          .box
+            img(src='http://cdn.shopify.com/s/files/1/0695/9547/products/3.5mm_audio_jack_large.jpeg?v=1421189864', width='140', height='140')
+            |         
+            p
+              a(href='#') 3.5mm Male-Male Stereo Jack
+              br
+              | $0.69
+            |  
+            |             
+            a(href='#')
+              button.buy  Shop Now
+        |  &#x9;
+        .col-md-4
+          .box
+            img(src='http://cdn.shopify.com/s/files/1/0695/9547/products/iphone_4_usb_cable_large.jpeg?v=1421189883', width='140', height='140')
+            |         &#x9;&#x9;
+            p
+              a(href='#') Apple iPhone 4/ iPod Cable
+              br
+              | $2.99
+            |  &#x9;&#x9;&#x9;&#x9;&#x9;
+            a(href='#')
+              button.buy  Shop Now
+    // Container for items ends here
+    // Product list
+    .section-header
+      h2.section-header-title.h4(style='margin-top: 35px;')
+        | We offer products from
+    hr.hr--clear
+    // Container for products
+    .productList
+      center
+        img(src='http://cdn.shopify.com/s/files/1/0695/9547/files/brands.png?9830')
+    // product list ends
