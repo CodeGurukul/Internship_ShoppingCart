@@ -1,0 +1,16 @@
+extends ./includes/layout
+block main
+	.container
+		.row
+			.col-md-6.col-md-offset-4.text-center
+				form(action="/addcourse")
+					button.btn.btn-primary(type='submit') Add Course
+	each val in items
+		.row
+			.col-md-6.col-md-offset-4.jumbotron
+				p= val.name
+				p= val.itemno
+				p= val.description
+				p= val.price
+				
+					button.btn.btn-default(type='submit') add to cart     

@@ -10,12 +10,14 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 //Require Models
 var User = require('./server/models/User');
+var Item = require('./server/models/Item');
 var passportConf = require('./server/config/passport');
 
 
 //Require Controllers
 var homeController = require('./server/controllers/home');
 var userController = require('./server/controllers/user');
+var itemController = require('./server/controllers/item');
 
 var app =express();
 
@@ -51,7 +53,9 @@ app.get('/signup', userController.getSignUp);
 app.post('/signup', userController.postSignUp);
 app.get('/log-in', userController.getLogin);
 app.post('/log-in', userController.postLogin);
-app.get('/signout', userController.getSignOut);
+app.get('/additem', itemController.getAddItem);
+app.post('/additem', itemController.postAddItem);
+app.get('/buyitem', itemController.getItemDetails);
 
 
 
