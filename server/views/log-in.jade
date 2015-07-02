@@ -1,0 +1,16 @@
+extends ./includes/layout
+block main
+  .container
+    .row
+      .col-md-6.col-md-offset-4
+        form(action='/log-in' method='post')
+          h3 Login
+          hr
+          
+          input.form-control(type='email' placeholder='Email' name="email" style='margin-bottom:10px')
+          input.form-control(type='password' placeholder='Password' name="password" style='margin-bottom:10px')
+          button.btn.btn-primary(type='submit') Login
+        form(action='/signup' method='post')
+          br
+          h4 Do not have an account?
+          a#customer_register_link(href='/signup') Create account

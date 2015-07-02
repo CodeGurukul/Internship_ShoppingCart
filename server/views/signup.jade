@@ -1,0 +1,18 @@
+extends ./includes/layout
+block main
+  .container
+    .row
+      .col-md-6.col-md-offset-4
+        form(action='/signup' method='post')
+          h3 Create Account
+          hr
+          input.form-control(type='text' placeholder='Name' name="name" style='margin-bottom:10px')
+          input.form-control(type='email' placeholder='Email' name="email" style='margin-bottom:10px')
+          input.form-control(type='password' placeholder='Password' name="password" style='margin-bottom:10px')
+          button.btn.btn-primary(type='submit') Create
+
+        br
+        h4 Don't wanna go through the pain?
+        a(href='auth/facebook') SignUp with Facebook
+        br
+          
