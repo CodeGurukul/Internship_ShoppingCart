@@ -1,0 +1,16 @@
+extends ./includes/layout
+block main
+  .container
+    .row
+      .col-md-6.col-md-offset-4.text-center
+        form(action="/additem")
+          button.btn.btn-primary(type='submit') Add Item
+    each val in items
+      .row
+        .col-md-6.col-md-offset-4.jumbotron
+          p= val.name
+          p= val.itemno
+          p= val.description
+          p= val.price
+          form(action="/deleteitem/"+val._id method="post")
+              button.btn.btn-default(type='submit') Delete        

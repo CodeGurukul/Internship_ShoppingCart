@@ -20,25 +20,25 @@ exports.postAddItem = function(req,res){
         var item = new Item ({name: req.body.itemname, itemno: req.body.itemno , description:req.body.description ,price:req.body.price});
         //The Magic!
         item.save(function(err){
-                Item.find(function(err,courses){
-            res.render('index');
+                Item.find(function(err,items){
+            res.render('viewitem',{items:items});
         });
         });
 
     }
 
-// exports.getViewCourses = function(req,res){
+exports.getViewItem = function(req,res){
 
-//         Course.find(function(err,courses){
-//             res.render('view-course',{courses:courses});
-//         });
+        Item.find(function(err,items){
+            res.render('viewitem',{items:items});
+        });
 
-//     }
+    }
 
-// exports.postDeleteCourse = function(req,res){
-//         Course.remove({ _id:req.params.id }, function (err) {
-//             Course.find(function(err,courses){
-//             res.render('view-course',{courses:courses});
-//         });
-//     });
-// }
+exports.postDeleteItem = function(req,res){
+        Item.remove({ _id:req.params.id }, function (err) {
+            Item.find(function(err,items){
+            res.render('viewitem',{items:items});
+        });
+    });
+}
