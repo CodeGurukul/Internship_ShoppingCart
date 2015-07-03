@@ -10,14 +10,14 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 //Require Models
 var User = require('./server/models/User');
-var Item = require('./server/models/Item');
+var Product = require('./server/models/Product');
 var passportConf = require('./server/config/passport');
 
 
 //Require Controllers
 var homeController = require('./server/controllers/home');
 var userController = require('./server/controllers/user');
-var itemController = require('./server/controllers/item');
+var productController = require('./server/controllers/product');
 
 var app =express();
 
@@ -53,11 +53,11 @@ app.get('/signup', userController.getSignUp);
 app.post('/signup', userController.postSignUp);
 app.get('/log-in', userController.getLogin);
 app.post('/log-in', userController.postLogin);
-app.get('/additem', itemController.getAddItem);
-app.post('/additem', itemController.postAddItem);
-app.get('/buyitem', itemController.getItemDetails);
-app.get('/viewitem', itemController.getViewItem);
-app.post('/deleteitem/:id', itemController.postDeleteItem);
+app.get('/addproduct', productController.getAddProduct);
+app.post('/addproduct', productController.postAddProduct);
+app.get('/buyproduct', productController.getProductDetails);
+app.get('/viewproduct', productController.getViewProduct);
+app.post('/deleteproduct/:id', productController.postDeleteProduct);
 app.get('/signout', userController.getSignOut);
 
 

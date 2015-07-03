@@ -3,14 +3,15 @@ block main
 	.container
 		.row
 			.col-md-6.col-md-offset-4.text-center
-				form(action="/addcourse")
-					button.btn.btn-primary(type='submit') Add Course
-	each val in items
+				form(action="/addproduct")
+					button.btn.btn-primary(type='submit') Add Product
+	each val in products
 		.row
 			.col-md-6.col-md-offset-4.jumbotron
 				p= val.name
-				p= val.itemno
+				p= val.iproductno
 				p= val.description
+				p= val.quantity
 				p= val.price
 				
 					button.btn.btn-default(type='submit') add to cart     

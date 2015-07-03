@@ -3,10 +3,11 @@ block main
 		.container
 				.row
 						.col-md-6.col-md-offset-4
-								form(action='/additem' method='post')
-										input.form-control(type='text' placeholder='Name' name="itemname")
-										input.form-control(type='string' placeholder='Itemno.' name="itemno")
+								form(action='/addproduct' method='post')
+										input.form-control(type='text' placeholder='Name' name="productname")
+										input.form-control(type='string' placeholder='Itemno.' name="productno")
 										input.form-control(type='text' placeholder='Description' name="description")
+										input.form-control(type='value' placeholder='Description' name="quantity")
 										input.form-control(type='value' placeholder='Price' name="price")
 										button.btn.btn-default(type='submit') Submit
 
