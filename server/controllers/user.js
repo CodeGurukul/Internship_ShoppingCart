@@ -17,7 +17,8 @@ exports.postSignUp = function(req,res){
         {
             profile:{name:req.body.name},
                 email:req.body.email, 
-                password:req.body.password
+                password:req.body.password,
+                type: ''
             
         });
             //Small issue here cant access profile.name

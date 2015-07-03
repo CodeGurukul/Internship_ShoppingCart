@@ -1,19 +1,26 @@
 var mongoose= require('mongoose');
 var bcrypt= require('bcrypt-nodejs');
 
+//Address Schema
+var addressSchema = new mongoose.Schema({
+ state: String,
+ city: String,
+ street: String,
+ pincode: String
+ });
+
 //User Schema
 var userSchema = new mongoose.Schema({
   email: { type: String, unique: true, lowercase: true },
   password: String,
+  address: [addressSchema],
   facebook: String,
   google: String,
-  origin: {city: String, state: String},
-  destination: {city: String, state: String},
-  price: Array,
-  time: Date,
-  phone_no: String,
   tokens: Array,
   type: String,
+
+  
+ 
   profile: {
     name: { type: String, default: '' },
     gender: { type: String, default: '' },
@@ -25,6 +32,10 @@ var userSchema = new mongoose.Schema({
   resetPasswordToken: String,
   resetPasswordExpires: Date
 });
+
+
+
+
 
 /**
  * Password hash middleware.
@@ -51,6 +62,8 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
     cb(null, isMatch);
   });
 };
+
+
 
 // Compile Schema into a mongoose Model
 var User = mongoose.model('User',userSchema);

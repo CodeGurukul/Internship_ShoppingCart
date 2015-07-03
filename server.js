@@ -58,7 +58,7 @@ app.post('/additem', itemController.postAddItem);
 app.get('/buyitem', itemController.getItemDetails);
 app.get('/viewitem', itemController.getViewItem);
 app.post('/deleteitem/:id', itemController.postDeleteItem);
-
+app.get('/signout', userController.getSignOut);
 
 
 
