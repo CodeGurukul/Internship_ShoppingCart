@@ -23,11 +23,10 @@ nav.navbar.navbar-inverse.navbar-fixed-top
               //- a.button.btn.btn-primary(href='auth/facebook') SignUp with Facebook
           else
               ul.navbar-right
-                li 
-                  h3 #{user.email}
-                li
-                  img(src='#{user.profile.picture}' style='max-width:50px')
-                  a(href='/signout') </br> Signout
+                 
+                h4 #{user.email}
+                img(src='#{user.profile.picture}' style='max-width:30px')
+                a(href='/signout') </br> Signout
                 
                   
           ul.nav.navbar-nav.navbar-left
@@ -36,6 +35,6 @@ nav.navbar.navbar-inverse.navbar-fixed-top
             if(user)
               if(user.type=='admin')
                 li
-                  a(href='/additem') Add Item
+                  a(href='/addproduct') Add Product
               li
-                a(href='/viewitem') View Item
+                a(href='/viewproduct') View Product

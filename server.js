@@ -10,6 +10,7 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 //Require Models
 var User = require('./server/models/User');
+var Review = require('./server/models/Review');
 var Product = require('./server/models/Product');
 var passportConf = require('./server/config/passport');
 

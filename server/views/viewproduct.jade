@@ -3,8 +3,10 @@ block main
   .container
     .row
       .col-md-6.col-md-offset-4.text-center
-        form(action="/addproduct")
-          button.btn.btn-primary(type='submit') Add Item
+      if(user)
+        if(user.type=='admin')
+          form(action="/addproduct")
+            button.btn.btn-primary(type='submit') Add Item
     each val in products
       .row
         .col-md-6.col-md-offset-4.jumbotron
