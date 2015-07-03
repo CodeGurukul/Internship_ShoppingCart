@@ -2,7 +2,7 @@ var Product= require('../models/Product');
 
 exports.getProductDetails = function(req,res){
 
-        Product.find(function(err,items){
+        Product.find(function(err,products){
             res.render('buyproduct',{products:products});
         });
 
