@@ -1,4 +1,5 @@
 var Product= require('../models/Product');
+var Review= require('../models/Review');
 
 exports.getProductDetails = function(req,res){
 
@@ -19,7 +20,15 @@ exports.postAddProduct = function(req,res){
         //Create a new course
         var product = new Product ({name: req.body.productname, productno: req.body.productno , description:req.body.description ,
             quantity:req.body.quantity , price:req.body.price});
+
+        var review = new Review ({text: req.body.text, rating: req.body.rating});
+
         //The Magic!
+        review.save(function(err){
+                Review.find(function(err,reviews){
+            });
+        });
+       
         product.save(function(err){
                 Product.find(function(err,products){
             res.render('viewproduct',{products:products});
