@@ -1,8 +1,17 @@
 var mongoose= require('mongoose');
 
+var reviewSchema = new mongoose.Schema({
+
+	_pid: { type: Number, ref: 'Product'},
+	_uid: { type: Number, ref: 'User'},
+	text: String,
+	time : { type : Date, default: Date.now },
+	rating: Number
+});
+
 //A mongoose Schema
 var productSchema =  new mongoose.Schema({
-	_id: Number,
+	
     name: String,
  	productno:String,
  	description: { type: String, default: '' },
@@ -10,7 +19,7 @@ var productSchema =  new mongoose.Schema({
     specifications: { type: String, default: '' },
     price:Number,
     quantity :Number,
-    reviews: [{ type: Schema.types.objectId, ref:'Review'}]
+    reviews: [{ type: mongoose.Schema.Types.ObjectId, ref:'Review'}]
  	
     });
 
@@ -18,5 +27,6 @@ var productSchema =  new mongoose.Schema({
 
 // Compile Schema into a mongoose Model
 var Product = mongoose.model('Product',productSchema);
+var Review = mongoose.model('Review',reviewSchema);
 module.exports = Product;
 

@@ -11,7 +11,7 @@ var addressSchema = new mongoose.Schema({
 
 //User Schema
 var userSchema = new mongoose.Schema({
-  _id: Number,
+  
   email: { type: String, unique: true, lowercase: true },
   password: String,
   address: [addressSchema],
