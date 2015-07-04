@@ -1,3 +1,4 @@
+var User= require('../models/User');
 var Product= require('../models/Product');
 var Review= require('../models/Review');
 
@@ -21,7 +22,7 @@ exports.postAddProduct = function(req,res){
         var product = new Product ({name: req.body.productname, productno: req.body.productno , description:req.body.description ,
             quantity:req.body.quantity , price:req.body.price});
 
-        var review = new Review ({text: req.body.text, rating: req.body.rating});
+        var review = new Review ({postedBy: User._id, title: req.body.title, rating: req.body.rating});
 
         //The Magic!
         review.save(function(err){

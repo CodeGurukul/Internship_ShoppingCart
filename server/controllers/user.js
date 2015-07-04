@@ -1,7 +1,7 @@
 var passport = require('passport');
 
 var User = require('../models/User');
-
+var Review= require('../models/Review');
 
 
 exports.getSignUp = function(req,res){

@@ -1,10 +1,16 @@
 var mongoose= require('mongoose');
+var User = require('./User');
+var Product = require('./Product');
 
 var reviewSchema = new mongoose.Schema({
 
-	_pid: { type: Number, ref: 'Product'},
-	_uid: { type: Number, ref: 'User'},
-	text: String,
+	title: String,
+    postedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    comments: [{
+        text1: String,
+        postedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+    }],
+	
 	time : { type : Date, default: Date.now },
 	rating: Number
 });
