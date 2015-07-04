@@ -7,6 +7,16 @@ nav.navbar.navbar-inverse.navbar-fixed-top
             span.icon-bar
             span.icon-bar
           a.navbar-brand(href='/') Online Shopping
+
+        form.navbar-form.navbar-right(action='/viewcart', method='post', style='margin-top: 15px; font-size: 18px;')
+          li
+            a(href='/viewcart')
+              i.fa.fa-shopping-cart.fa-1x
+              | View Cart
+        |       
+        
+
+
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           if !user
             //- form.navbar-form.navbar-right(action="/signup")
@@ -38,3 +48,10 @@ nav.navbar.navbar-inverse.navbar-fixed-top
                   a(href='/addproduct') Add Product
               li
                 a(href='/viewproduct') View Product
+
+            form.navbar-form.navbar-left(role='search')
+              .form-group
+                input.form-control(type='text', placeholder='Search for product')
+              |         
+              button.btn.btn-default(type='submit') SEARCH
+
