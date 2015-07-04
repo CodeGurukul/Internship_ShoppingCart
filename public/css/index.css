@@ -17,6 +17,7 @@
     margin-top: 35px;
 }
 
+#navbck{background-color: #253744;border-color: #0A0909;}
 
 hr.hr--clear {
   border-color: rgb(182, 199, 197);
@@ -24,5 +25,12 @@ hr.hr--clear {
   margin-bottom: 20px;
   border: 0;
   border-top: 2px solid #eee;
-  width: 88%;
+  width: 90%;
 }
+
+#sidebar{  margin-top: 35px;margin-left: -55px;}
+#sidebar h4{font-size: ;}
+#sidebar li{font-size: 16px;}
+
+.headimg{margin-top: 57px;}
+.headimg img{  height: 180px;width: 550px;}

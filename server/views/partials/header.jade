@@ -8,10 +8,10 @@ nav.navbar.navbar-inverse.navbar-fixed-top
             span.icon-bar
           a.navbar-brand(href='/') Online Shopping
 
-        form.navbar-form.navbar-right(action='/viewcart', method='post', style='margin-top: 15px; font-size: 18px;')
+        form.navbar-form.navbar-right(action='/viewcart', method='post', style='margin-top: 15px; font-size: 16px;')
           li
             a(href='/viewcart')
-              i.fa.fa-shopping-cart.fa-1x
+              i.fa.fa-shopping-cart.fa-2x
               | View Cart
         |       
         
@@ -23,7 +23,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top
             //-   button.btn.btn-primary Sign Up
             form.navbar-form.navbar-right(action="/log-in")
                a(href='/log-in')
-                h4 Login?
+                h4 Have an account?
             form.navbar-form.navbar-right(action="/login" method="post")
               //- .form-group
               //-   input.form-control(type="email" placeholder="Email" name="email")
@@ -53,5 +53,4 @@ nav.navbar.navbar-inverse.navbar-fixed-top
               .form-group
                 input.form-control(type='text', placeholder='Search for product')
               |         
-              button.btn.btn-default(type='submit') SEARCH
-
+              button.btn.btn-default(type='submit' style='background:#DBDCF2;') SEARCH
