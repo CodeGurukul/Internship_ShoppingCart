@@ -69,22 +69,11 @@ app.post('/addreview', reviewController.postAddReview);
 app.get('/allreviews', reviewController.getAllReviews);
 
 
-
-// integrted google login--check
-app.get('/auth/google',
-  passport.authenticate('google', { 
-  	scope: 'https://www.googleapis.com/auth/plus.login'
-  	 }));
-
-app.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication, redirect Ride share home.
-    res.redirect('/');
-  });
-
-
-
+//Google authentication
+app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function(req, res) {
+  res.redirect(req.session.returnTo || '/');
+});
 
 
 //facebook authentication

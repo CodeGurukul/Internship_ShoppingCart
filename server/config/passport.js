@@ -4,20 +4,22 @@ var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy=require('passport-facebook').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
-var facebook= {
+ var secrets = {
+ facebook: {
   clientID: '1598937630395666',
   clientSecret: 'b528f3f366c67a3c2162b2b0833fd859',
   callbackURL: '/auth/facebook/callback',
   passReqToCallback: true
-};
+},
 
 // New google stratery implemented
-var google ={
-    clientID: '435540982380-7ptbucrqp4chmif608l6vqs0ol4v2gtg.apps.googleusercontent.com',
-    clientSecret: 'WlPvnWMlec8gE5X0T0TVRQ6I',
-    callbackURL: "http://127.0.0.1:3000/auth/google/callback"
+google: {
+    clientID: '32462783511-u4bnbfnr3ib5dgrh14ofrb5c40tbuda4.apps.googleusercontent.com',
+    clientSecret: 'FIzoE0-AGoRlywVSzUKoiRVJ',
+    callbackURL: '/auth/google/callback',
+    passReqToCallback: true
   }
-  
+ }; 
 
 
 //When passport is created, this says what as to be stored with regards to the user
@@ -52,7 +54,7 @@ passport.use(new LocalStrategy({usernameField:'email'},function(email, password,
 /**
  * Sign in with Facebook.
  */
-passport.use(new FacebookStrategy(facebook, function(req, accessToken, refreshToken, profile, done) {
+passport.use(new FacebookStrategy(secrets.facebook, function(req, accessToken, refreshToken, profile, done) {
   if (req.user) {
     User.findOne({ facebook: profile.id }, function(err, existingUser) {
       if (existingUser) {
@@ -66,7 +68,7 @@ passport.use(new FacebookStrategy(facebook, function(req, accessToken, refreshTo
           user.profile.gender = user.profile.gender || profile._json.gender;
           user.profile.picture = user.profile.picture || 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
           user.save(function(err) {
-            console.log('Facebook account has been linked.');
+            req.flash('info', { msg: 'Facebook account has been linked.' });
             done(err, user);
           });
         });
@@ -97,22 +99,24 @@ passport.use(new FacebookStrategy(facebook, function(req, accessToken, refreshTo
   }
 }));
 
-//** Implemented google login..Check with Ui **//
-passport.use(new GoogleStrategy(google, function(req, accessToken, refreshToken, profile, done) {
+/**
+ * Sign in with Google.
+ */
+passport.use(new GoogleStrategy(secrets.google, function(req, accessToken, refreshToken, profile, done) {
   if (req.user) {
     User.findOne({ google: profile.id }, function(err, existingUser) {
       if (existingUser) {
-        console.log('There is already a Google+ account that belongs to you. Sign in with that account or delete it, then link it with your current account.' );
+        req.flash('errors', { msg: 'There is already a Google account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
         done(err);
       } else {
         User.findById(req.user.id, function(err, user) {
           user.google = profile.id;
           user.tokens.push({ kind: 'google', accessToken: accessToken });
-          user.profile.displayName = user.profile.displayName || profile.displayName;
+          user.profile.name = user.profile.name || profile.displayName;
           user.profile.gender = user.profile.gender || profile._json.gender;
-            //user.profile.picture = user.profile.picture || 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
+          user.profile.picture = user.profile.picture || profile._json.picture;
           user.save(function(err) {
-            console.log('Google account has been linked.');
+            req.flash('info', { msg: 'Google account has been linked.' });
             done(err, user);
           });
         });
@@ -121,19 +125,18 @@ passport.use(new GoogleStrategy(google, function(req, accessToken, refreshToken,
   } else {
     User.findOne({ google: profile.id }, function(err, existingUser) {
       if (existingUser) return done(null, existingUser);
-      User.findOne({ email: profile._json.email }, function(err, existingEmailUser) {
+      User.findOne({ email: profile.emails[0].value }, function(err, existingEmailUser) {
         if (existingEmailUser) {
-           console.log('There is already an account using this email address. Sign in to that account and link it with Google manually from Account Settings.' );
+          req.flash('errors', { msg: 'There is already an account using this email address. Sign in to that account and link it with Google manually from Account Settings.' });
           done(err);
         } else {
           var user = new User();
-          user.email = profile._json.email;
+          user.email = profile.emails[0].value;
           user.google = profile.id;
           user.tokens.push({ kind: 'google', accessToken: accessToken });
-          user.profile.displayName = profile.displayName;
+          user.profile.name = profile.displayName;
           user.profile.gender = profile._json.gender;
-            //user.profile.picture = 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
-          user.profile.location = (profile._json.location) ? profile._json.location.name : '';
+          user.profile.picture = profile._json.picture;
           user.save(function(err) {
             done(err, user);
           });
@@ -142,7 +145,6 @@ passport.use(new GoogleStrategy(google, function(req, accessToken, refreshToken,
     });
   }
 }));
-
 
 /**
  * Login Required middleware.
