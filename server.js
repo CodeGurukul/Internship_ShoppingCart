@@ -12,12 +12,14 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var User = require('./server/models/User');
 var Review = require('./server/models/Review');
 var Product = require('./server/models/Product');
+
 var passportConf = require('./server/config/passport');
 
 
 //Require Controllers
 var homeController = require('./server/controllers/home');
 var userController = require('./server/controllers/user');
+
 var productController = require('./server/controllers/product');
 var reviewController = require('./server/controllers/review');
 

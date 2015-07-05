@@ -11,6 +11,8 @@ var mongoose= require('mongoose');
 
 // var Review = mongoose.model('Review',reviewSchema);
 
+var Review = mongoose.model('Review',reviewSchema);
+
 //A mongoose Schema
 var productSchema =  new mongoose.Schema({
 	

@@ -1,17 +1,25 @@
 extends ./includes/layout
 block main
-	.container
-		.row
-			.col-md-6.col-md-offset-4.text-center
-				form(action="/addproduct")
-					button.btn.btn-primary(type='submit') Add Product
-	each val in products
-		.row
-			.col-md-6.col-md-offset-4.jumbotron
-				p= val.name
-				p= val.iproductno
-				p= val.description
-				p= val.quantity
-				p= val.price
-				
-					button.btn.btn-default(type='submit') add to cart     
+   .container
+     each _id in products
+      .row.text-center
+        h3 Product Details
+        a.btn.btn-lg.btn-success(href='#', data-toggle='modal', data-target='#basicModal') BUY
+      #basicModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true')
+        .modal-dialog
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+              h4#myModalLabel.modal-title Product details
+            .modal-body
+               
+                 .row
+                    .col-md-6.col-md-offset-4.jumbotron
+                      p= _id.name
+                      p= _id.productno
+                      p= _id.description
+                      p= _id.quantity
+                      p= _id.price
+            .modal-footer
+              button.btn.btn-default(type='button', data-dismiss='modal') Buy Now
+              button.btn.btn-primary(type='button') Add to cart

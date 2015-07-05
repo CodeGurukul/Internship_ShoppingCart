@@ -3,16 +3,19 @@ block main
   .container
     .row
       .col-md-6.col-md-offset-4.text-center
+
       if(user)
-        if(user.type=='admin')
+        if(user.type ='admin')
           form(action="/addproduct")
             button.btn.btn-primary(type='submit') Add Item
+
     each val in products
       .row
         .col-md-6.col-md-offset-4.jumbotron
           p= val.name
-          p= val.itemno
+          p= val.productno
           p= val.description
+          p= val.quantity
           p= val.price
           form(action="/deleteproduct/"+val._id method="post")
               button.btn.btn-default(type='submit') Delete        

@@ -1,12 +1,15 @@
+
 var User= require('../models/User');
 var Product= require('../models/Product');
 var Review= require('../models/Review');
+
 
 exports.getAddReview = function(req,res){
       res.render('addreview');
     }
 
 exports.postAddReview = function(req,res){
+
 var review = new Review ({
 	postedBy: User._id, 
 	title: req.body.title, 
@@ -31,3 +34,4 @@ Review.find().populate('p_id').exec(function(err, review) {
 
 	});
 }    
+
