@@ -1,5 +1,6 @@
 var mongoose= require('mongoose');
 
+
 // var reviewSchema = new mongoose.Schema({
 
 // 	_pid: { type: Number, ref: 'Product'},
@@ -11,7 +12,6 @@ var mongoose= require('mongoose');
 
 // var Review = mongoose.model('Review',reviewSchema);
 
-var Review = mongoose.model('Review',reviewSchema);
 
 //A mongoose Schema
 var productSchema =  new mongoose.Schema({
@@ -32,5 +32,7 @@ var productSchema =  new mongoose.Schema({
 // Compile Schema into a mongoose Model
 var Product = mongoose.model('Product',productSchema);
 
+
 module.exports = Product;
+
 

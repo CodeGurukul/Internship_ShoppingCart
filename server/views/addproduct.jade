@@ -2,7 +2,9 @@ extends ./includes/layout
 block main
 		.container
 				.row
-						.col-md-6.col-md-offset-4
+					.col-md-6.col-md-offset-4
+						if(user)
+							if(user.type ='admin')
 								form(action='/addproduct' method='post')
 
 									h4 Add Product

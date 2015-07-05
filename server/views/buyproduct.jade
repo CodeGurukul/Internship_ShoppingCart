@@ -1,9 +1,10 @@
 extends ./includes/layout
 block main
    .container
-     each _id in products
+     each product in products
       .row.text-center
-        h3 Product Details
+        h3 
+        p=product.name
         a.btn.btn-lg.btn-success(href='#', data-toggle='modal', data-target='#basicModal') BUY
       #basicModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true')
         .modal-dialog
@@ -15,11 +16,12 @@ block main
                
                  .row
                     .col-md-6.col-md-offset-4.jumbotron
-                      p= _id.name
-                      p= _id.productno
-                      p= _id.description
-                      p= _id.quantity
-                      p= _id.price
+                     
+                      p= product.name
+                      p= product.productno
+                      p= product.description
+                      p= product.quantity
+                      p= product.price
             .modal-footer
               button.btn.btn-default(type='button', data-dismiss='modal') Buy Now
               button.btn.btn-primary(type='button') Add to cart

@@ -17,5 +17,7 @@ block main
           p= val.description
           p= val.quantity
           p= val.price
-          form(action="/deleteproduct/"+val._id method="post")
-              button.btn.btn-default(type='submit') Delete        
+          if(user)
+              if(user.type ='admin')
+                 form(action="/deleteproduct/"+val._id method="post")
+                    button.btn.btn-default(type='submit') Delete        
