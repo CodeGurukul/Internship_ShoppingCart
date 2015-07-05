@@ -19,6 +19,8 @@ var passportConf = require('./server/config/passport');
 var homeController = require('./server/controllers/home');
 var userController = require('./server/controllers/user');
 var productController = require('./server/controllers/product');
+var reviewController = require('./server/controllers/review');
+
 
 var app =express();
 
@@ -60,6 +62,9 @@ app.get('/buyproduct', productController.getProductDetails);
 app.get('/viewproduct', productController.getViewProduct);
 app.post('/deleteproduct/:id', productController.postDeleteProduct);
 app.get('/signout', userController.getSignOut);
+app.get('/addreview', reviewController.getAddReview);
+app.post('/addreview', reviewController.postAddReview);
+app.get('/allreviews', reviewController.getAllReviews);
 
 
 

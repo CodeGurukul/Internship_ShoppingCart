@@ -5,12 +5,9 @@ var Product = require('./Product');
 var reviewSchema = new mongoose.Schema({
 
 	title: String,
-    postedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    comments: [{
-        text1: String,
-        postedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
-    }],
-	
+	u_id:{type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+	p_id:[{type: mongoose.Schema.Types.ObjectId, ref: 'Product'}],
+    
 	time : { type : Date, default: Date.now },
 	rating: Number
 });
@@ -18,3 +15,11 @@ var reviewSchema = new mongoose.Schema({
 var Review = mongoose.model('Review',reviewSchema);
 
 module.exports = Review;
+
+
+// postedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    // comments: [{
+    //     text1: String,
+    //     postedBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+    // }],
+	

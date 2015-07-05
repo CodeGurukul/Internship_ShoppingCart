@@ -4,16 +4,16 @@ block main
 				.row
 						.col-md-6.col-md-offset-4
 								form(action='/addproduct' method='post')
-										input.form-control(type='text' placeholder='Name' name="productname")
-										input.form-control(type='string' placeholder='Itemno.' name="productno")
-										input.form-control(type='text' placeholder='Description' name="description")
-										input.form-control(type='text' placeholder='Details' name="details")
-										input.form-control(type='value' placeholder='Quantity' name="quantity")
-										input.form-control(type='value' placeholder='Price' name="price")
-										h4 Reviews
-										input.form-control(type='value' placeholder='Title' name="title")
-										input.form-control(type='value' placeholder='Body' name="text1")
-										input.form-control(type='value' placeholder='Rating(0-5)' name="rating")
+									h4 Add Product
 
-										button.btn.btn-default(type='submit') Submit
+									input.form-control(type='text' placeholder='Name' name="productname")
+									input.form-control(type='string' placeholder='Itemno.' name="productno")
+									input.form-control(type='text' placeholder='Description' name="description")
+									input.form-control(type='text' placeholder='Details' name="details")
+									input.form-control(type='value' placeholder='Quantity' name="quantity")
+									input.form-control(type='value' placeholder='Price' name="price")
+									br
+									button.btn.btn-warning(type='submit') Submit
+								form(action="/addreview")
+									button.btn.btn-primary(type='submit') Add Review
 
