@@ -1,43 +1,51 @@
-var User = require('../models/User');
+var _ = require('lodash');
 var passport = require('passport');
+
 var LocalStrategy = require('passport-local').Strategy;
-var FacebookStrategy=require('passport-facebook').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
+
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
- var secrets = {
- facebook: {
-  clientID: '1598937630395666',
-  clientSecret: 'b528f3f366c67a3c2162b2b0833fd859',
+
+var secrets = {
+  facebook: {
+    clientID: '408584266018652',
+  clientSecret: '6f0e806599e9d22f0513bb22cedbe214',
   callbackURL: '/auth/facebook/callback',
   passReqToCallback: true
-},
+  },
 
-// New google stratery implemented
-google: {
-    clientID: '32462783511-u4bnbfnr3ib5dgrh14ofrb5c40tbuda4.apps.googleusercontent.com',
-    clientSecret: 'FIzoE0-AGoRlywVSzUKoiRVJ',
-    callbackURL: '/auth/google/callback',
+
+
+  google: {
+    clientID: '890484862733-eti8ibrqsdmj5m133fukbj2qfqtpsa2s.apps.googleusercontent.com',
+    clientSecret: 'eXmGIqCVJaXeoPPXLrfDXx4o',
+    callbackURL: 'http://localhost:3000/oauth2callback',
     passReqToCallback: true
-  }
- }; 
+  },
 
 
-//When passport is created, this says what as to be stored with regards to the user
+};
+
+var User = require('../models/User');
+
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
 
-//Invoked by passport.session
 passport.deserializeUser(function(id, done) {
   User.findById(id, function(err, user) {
     done(err, user);
   });
 });
 
+
+
+
 /**
  * Sign in using Email and Password.
  */
-passport.use(new LocalStrategy({usernameField:'email'},function(email, password, done) {
+passport.use(new LocalStrategy({ usernameField: 'email' }, function(email, password, done) {
   email = email.toLowerCase();
   User.findOne({ email: email }, function(err, user) {
     if (!user) return done(null, false, { message: 'Email ' + email + ' not found'});
@@ -50,6 +58,21 @@ passport.use(new LocalStrategy({usernameField:'email'},function(email, password,
     });
   });
 }));
+
+/**
+ * OAuth Strategy Overview
+ *
+ * - User is already logged in.
+ *   - Check if there is an existing account with a provider id.
+ *     - If there is, return an error message. (Account merging not supported)
+ *     - Else link new OAuth account with currently logged-in user.
+ * - User is not logged in.
+ *   - Check if it's a returning user.
+ *     - If returning user, sign in and we are done.
+ *     - Else check if there is an existing account with user's email.
+ *       - If there is, return an error message.
+ *       - Else create a new account.
+ */
 
 /**
  * Sign in with Facebook.
@@ -99,6 +122,7 @@ passport.use(new FacebookStrategy(secrets.facebook, function(req, accessToken, r
   }
 }));
 
+
 /**
  * Sign in with Google.
  */
@@ -147,14 +171,14 @@ passport.use(new GoogleStrategy(secrets.google, function(req, accessToken, refre
 }));
 
 /**
+ * Sign in with LinkedIn.
+ */
+
+
+/**
  * Login Required middleware.
  */
 exports.isAuthenticated = function(req, res, next) {
   if (req.isAuthenticated()) return next();
-  res.redirect('/');
+  res.redirect('/login');
 };
-
-
-
-
-
