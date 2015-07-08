@@ -281,10 +281,72 @@ block main
 
     // Product Vendor list
     .section-header
-      h2.section-header-title.h4(style='margin-top: 35px;')
+      h2.section-header-title.h4(style='margin-top: 35px;text-align: center;')
         b We offer products from
-    hr.hr--clear
+    hr.hr--clear(style='width: 84%;')
     // Container for products
     .productList
       center
         img(src='http://cdn.shopify.com/s/files/1/0695/9547/files/brands.png?9830')
+        br
+    // footer here
+    #footer(style='background-color:#F0F0E9;')
+      .footer-widget
+        .container
+          .row
+            .col-md-4
+              .single-widget
+                h2 Service
+                |               
+                ul.nav.nav-pills.nav-stacked
+                  li
+                    a(href='#') Online Help
+                  |                 
+                  li
+                    a(href='#') Contact Us
+                  |                 
+                  li
+                    a(href='#') Order Status
+                  |                 
+                  li
+                    a(href='#') Change Location
+                  |                 
+                  li
+                    a(href='#') FAQ&rsquo;s
+            |           
+            .col-md-4
+              .single-widget
+                h2 Policies
+                |               
+                ul.nav.nav-pills.nav-stacked
+                  li
+                    a(href='#') Terms of Use
+                  |                 
+                  li
+                    a(href='#') Privecy Policy
+                  |                 
+                  li
+                    a(href='#') Refund Policy
+                  |                 
+                  li
+                    a(href='#') Billing System
+                  |                 
+                  li
+                    a(href='#') Ticket System
+            |           
+            .col-md-4
+              .single-widget
+                h2 About Shopper
+                |               
+                form.searchform(action='#')
+                  input(type='text', placeholder='Your email address')
+                  |                 
+                  button.btn.btn-default(type='submit') Submit
+                  |                 
+                  p Get the most recent updates from our products and be updated your self...
+    // footer ends here
+
+
+
+
+
