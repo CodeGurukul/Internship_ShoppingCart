@@ -1,7 +1,7 @@
 extends ./includes/layout
 block main
     // carousel here
-    #myCarousel.carousel.slide
+    #myCarousel.carousel.slide.animated.lightSpeedIn(style='margin-top:-34px;')
       // Indicators
       ol.carousel-indicators
         li.active(data-target='#myCarousel', data-slide-to='0')
@@ -22,6 +22,7 @@ block main
           |       
           .carousel-caption
             // caption here
+        
       // Controls
       a.carousel-control.left(href='#myCarousel', data-slide='prev')
         span.icon-prev
@@ -277,6 +278,7 @@ block main
                   a(href='#')
                     button.buy  Shop Now
             // div for row ends
+
     // Product Vendor list
     .section-header
       h2.section-header-title.h4(style='margin-top: 35px;')

@@ -9,15 +9,22 @@ block main
           form(action="/addproduct")
             button.btn.btn-primary(type='submit') Add Item
 
-    each val in products
-      .row
-        .col-md-6.col-md-offset-4.jumbotron
-          p= val.name
-          p= val.productno
-          p= val.description
-          p= val.quantity
-          p= val.price
+    .row
+      each val in products
+        .col-md-4.col-md-offset-2.jumbotron
+          h4 Name:
+           p= val.name
+          h4 Product No:
+            p= val.productno
+          h4 Description:
+            p= val.description
+          h4 Quantity:  
+            p= val.quantity
+          h4 Price:
+            p= val.price
           if(user)
               if(user.type ='admin')
                  form(action="/deleteproduct/"+val._id method="post")
-                    button.btn.btn-default(type='submit') Delete        
+                    button.btn.btn-warning(type='submit') Delete
+                 form(action="/updateproduct/"+val._id method="post")
+                    button.btn.btn-warning(type='submit') Edit        

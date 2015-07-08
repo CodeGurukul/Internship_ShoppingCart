@@ -70,10 +70,14 @@ app.get('/allreviews', reviewController.getAllReviews);
 
 
 //Google authentication
-app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function(req, res) {
-  res.redirect(req.session.returnTo || '/');
+app.get('/auth/google', passport.authenticate('google',  { scope:  ['profile' , 'email' , 'https://www.googleapis.com/auth/plus.login']}));
+app.get('http://localhost:3000/oauth2callback', passport.authenticate('google', { failureRedirect: '/' }), function(req, res) {
+ res.redirect(req.session.returnTo || '/');
 });
+// app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
+// app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function(req, res) {
+//   res.redirect(req.session.returnTo || '/');
+// });
 
 
 //facebook authentication
