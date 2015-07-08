@@ -6,7 +6,7 @@ var reviewSchema = new mongoose.Schema({
 
 	title: String,
 	u_id:{type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-	p_id:[{type: mongoose.Schema.Types.ObjectId, ref: 'Product'}],
+	p_id:{type: mongoose.Schema.Types.ObjectId, ref: 'Product'},
     
 	time : { type : Date, default: Date.now },
 	rating: Number

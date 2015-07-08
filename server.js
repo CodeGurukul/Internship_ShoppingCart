@@ -4,7 +4,7 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var MongoStore = require('connect-mongo')(session);
 var passport = require('passport');
-// var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 
 
@@ -64,7 +64,7 @@ app.get('/buyproduct', productController.getProductDetails);
 app.get('/viewproduct', productController.getViewProduct);
 app.post('/deleteproduct/:id', productController.postDeleteProduct);
 app.get('/signout', userController.getSignOut);
-app.get('/addreview', reviewController.getAddReview);
+app.get('/addreview/:id', reviewController.getAddReview);
 app.post('/addreview', reviewController.postAddReview);
 app.get('/allreviews', reviewController.getAllReviews);
 

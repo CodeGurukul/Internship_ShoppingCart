@@ -5,23 +5,23 @@ block main
       .row.text-center
         h3 
         p=product.name
-        a.btn.btn-lg.btn-success(href='#', data-toggle='modal', data-target='#basicModal') BUY
-      #basicModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true')
-        .modal-dialog
-          .modal-content
-            .modal-header
-              button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-              h4#myModalLabel.modal-title Product details
-            .modal-body
-               
-                 .row
-                    .col-md-6.col-md-offset-4.jumbotron
-                     
-                      p= product.name
-                      p= product.productno
-                      p= product.description
-                      p= product.quantity
-                      p= product.price
-            .modal-footer
-              button.btn.btn-default(type='button', data-dismiss='modal') Buy Now
-              a.button.btn.btn-primary(href='/cart',type='button') Add to cart
+        a.btn.btn-lg.btn-success(href='#', data-toggle='modal', data-target='#basicModal'+product.id) BUY
+        .id.modal.fade(tabindex='-1', id='basicModal'+product.id, role='dialog', aria-labelledby='basicModal', aria-hidden='true')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                h4#myModalLabel.modal-title Product details
+              .modal-body
+
+                   .row
+                      .col-md-6.col-md-offset-4.jumbotron
+
+                        p= product.name
+                        p= product.productno
+                        p= product.description
+                        p= product.quantity
+                        p= product.price
+              .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Buy Now
+                a.button.btn.btn-primary(href='/cart',type='button') Add to cart

@@ -1,0 +1,14 @@
+extends ./includes/layout
+block main
+  .container
+    .row
+      each val in reviews
+        .col-md-4.col-md-offset-2.jumbotron
+          h4 Title:
+           p= val.title
+          h4 Rating:
+           p= val.rating
+          h4 Time:
+            p= val.time
+          h4 Product
+            p= val.p_id

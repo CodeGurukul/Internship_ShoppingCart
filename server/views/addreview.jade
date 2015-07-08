@@ -5,6 +5,7 @@ block main
 						.col-md-6.col-md-offset-4
 								form(action='/addreview' method='post')
 									h4 Reviews
+									input.form-control(type='text' value='#{name}' name="pid")
 									input.form-control(type='value' placeholder='Title' name="title")
 									input.form-control(type='value' placeholder='Body' name="text1")
 									input.form-control(type='value' placeholder='Rating(0-5)' name="rating")

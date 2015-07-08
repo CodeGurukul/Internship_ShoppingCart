@@ -1,6 +1,8 @@
-
+var Product= require('../models/Product');
 
 exports.getIndex = function(req,res){
         
-            res.render('index');
+            Product.find(function(err,products){
+            res.render('index',{products:products});
+        });
         }

@@ -14,6 +14,8 @@ block main
         .col-md-4.col-md-offset-2.jumbotron
           h4 Name:
            p= val.name
+          h4 Name:
+           p= val.id
           h4 Product No:
             p= val.productno
           h4 Description:
@@ -24,7 +26,6 @@ block main
             p= val.price
           if(user)
               if(user.type ='admin')
-                 form(action="/deleteproduct/"+val._id method="post")
-                    button.btn.btn-warning(type='submit') Delete
-                 form(action="/updateproduct/"+val._id method="post")
-                    button.btn.btn-warning(type='submit') Edit        
+                 a.btn.btn-primary(href="/deleteproduct/#{val.id}") Delete
+                 a.btn.btn-warning(href="/updateproduct/#{val.id}") Edit
+                 a.btn.btn-info(href="/addreview/#{val.id}") Add Review
