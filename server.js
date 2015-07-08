@@ -54,6 +54,7 @@ console.log('local mongodb opened');
 
 //Routes
 app.get('/', homeController.getIndex);
+app.get('/viewcart', homeController.getCart);
 app.get('/signup', userController.getSignUp);
 app.post('/signup', userController.postSignUp);
 app.get('/log-in', userController.getLogin);
@@ -67,6 +68,7 @@ app.get('/signout', userController.getSignOut);
 app.get('/addreview/:id', reviewController.getAddReview);
 app.post('/addreview', reviewController.postAddReview);
 app.get('/allreviews', reviewController.getAllReviews);
+
 
 
 //Google authentication

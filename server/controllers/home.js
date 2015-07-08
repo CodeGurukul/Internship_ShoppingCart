@@ -6,3 +6,7 @@ exports.getIndex = function(req,res){
             res.render('index',{products:products});
         });
         }
+exports.getCart = function(req,res){
+        
+            res.render('viewcart');
+        }
