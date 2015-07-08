@@ -4,7 +4,7 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var MongoStore = require('connect-mongo')(session);
 var passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+// var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 
 
@@ -70,11 +70,16 @@ app.get('/allreviews', reviewController.getAllReviews);
 
 
 //Google authentication
+// app.get('/auth/google', passport.authenticate('google',  { scope:  ['profile' , 'email' , 'https://www.googleapis.com/auth/plus.login']}));
+// app.get('http://localhost:3000/oauth2callback', passport.authenticate('google', { failureRedirect: '/' }), function(req, res) {
+
+//  res.redirect(req.session.returnTo || '/');
+
+// });
+
 app.get('/auth/google', passport.authenticate('google',  { scope:  ['profile' , 'email' , 'https://www.googleapis.com/auth/plus.login']}));
-app.get('http://localhost:3000/oauth2callback', passport.authenticate('google', { failureRedirect: '/' }), function(req, res) {
-
- res.redirect(req.session.returnTo || '/');
-
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), function(req, res) {
+  res.redirect(req.session.returnTo || '/');
 });
 // app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
 // app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function(req, res) {

@@ -17,9 +17,9 @@ var secrets = {
 
 
   google: {
-    clientID: '890484862733-eti8ibrqsdmj5m133fukbj2qfqtpsa2s.apps.googleusercontent.com',
-    clientSecret: 'eXmGIqCVJaXeoPPXLrfDXx4o',
-    callbackURL: 'http://localhost:3000/oauth2callback',
+    clientID:'535379061302-5d5oca06vtl9g09rltpflmkgv34thgop.apps.googleusercontent.com',
+clientSecret:'MsdYCoCnGcZXWyftJJ8ZCgD6',
+callbackURL:'/auth/google/callback',
 
     passReqToCallback: true
   },
