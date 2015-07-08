@@ -1,0 +1,39 @@
+extends ./includes/layout
+block main
+
+    main(role='main')
+      .products.mb2
+        h2 Your cart 
+        ul.nm-np.inline
+          | {#cart.items}
+          li
+            h3.nm-np {.qty} x {.name}
+            h4.nm-np Price: {.prettyPrice} ea.
+          |                 {/cart.items}
+      .ccForm.inline
+        h3 Total: ${cart.total}
+        fieldset
+          form(method='post', action='/pay')
+            input(name='cc', placeholder='CC #', value='4532649989162709', maxlength='16')
+            br
+            input(name='expMonth', placeholder='MM', value='12', maxlength='2', size='2')
+            input(name='expYear', placeholder='YYYY', value='2018', maxlength='4', size='4')
+            input(name='cvv', placeholder='cvv', value='111', maxlength='4', size='4')
+            br
+            input(name='firstName', value='Ash', placeholder='First Name')
+            input(name='lastName', value='Williams', placeholder='Last Name')
+            br
+            input(type='hidden', name='_csrf', value='{_csrf}')
+            input(type='submit', value='Complete Purchase')
+      div
+        p
+          | Note:
+          br
+          |                 The above values have been pre-filled for your convenience
+          br
+          |                 You can use any valid Amex, Visa, MC or Discover credit card number
+          |                 (
+          a(target='_blank', href='http://www.darkcoding.net/credit-card-numbers/') Random Generator
+          | )
+          br
+          |                 along with any cvv and expiration date in the future.
