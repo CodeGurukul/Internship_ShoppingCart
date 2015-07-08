@@ -3,13 +3,13 @@ var nodemailer = require("nodemailer");
 var smtpTransport = nodemailer.createTransport("SMTP",{
    service: "Gmail",  // sets automatically host, port and connection security settings
    auth: {
-       user: "madrista2995@gmail.com",
-       pass: "9892432790"
+       user: "abc@gmail.com",
+       pass: "password"
    }
 });
 
 smtpTransport.sendMail({  //email options
-   from: "Online cart <madrista2995@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
+   from: "Online cart <abc@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
    to: "Receiver Name <receiver@email.com>", // receiver
    subject: "Emailing with nodemailer", // subject
    text: "Email Example with nodemailer" // body
