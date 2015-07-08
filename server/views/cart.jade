@@ -1,0 +1,7 @@
+extends ./includes/layout
+block main
+    .container
+      .row
+        .col-md-6.col-md-offset-4.jumbotron
+           each product in products
+             p=product.name

@@ -35,7 +35,7 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   secret: 'Codegurukul',
-  store: new MongoStore({ url: 'mongodb://localhost/codegurukul', autoReconnect: true })
+  store: new MongoStore({ url: 'mongodb://localhost/shopcart', autoReconnect: true })
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -49,7 +49,7 @@ app.use(bodyParser.json());// assuming POST: {"name":"foo","color":"red"} <-- JS
 app.use(bodyParser.urlencoded({extended:true}));// assuming POST: name=foo&color=red <-- URL encoding
 
 //Mongoose Connection with MongoDB
-mongoose.connect('mongodb://localhost/codegurukul');
+mongoose.connect('mongodb://localhost/shopcart');
 console.log('local mongodb opened');
 
 //Routes
@@ -72,7 +72,9 @@ app.get('/allreviews', reviewController.getAllReviews);
 //Google authentication
 app.get('/auth/google', passport.authenticate('google',  { scope:  ['profile' , 'email' , 'https://www.googleapis.com/auth/plus.login']}));
 app.get('http://localhost:3000/oauth2callback', passport.authenticate('google', { failureRedirect: '/' }), function(req, res) {
+
  res.redirect(req.session.returnTo || '/');
+
 });
 // app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
 // app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function(req, res) {
