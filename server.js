@@ -12,7 +12,7 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var User = require('./server/models/User');
 var Review = require('./server/models/Review');
 var Product = require('./server/models/Product');
-
+var contactUs=require('./server/config/contact');
 var passportConf = require('./server/config/passport');
 
 
@@ -68,6 +68,8 @@ app.get('/signout', userController.getSignOut);
 app.get('/addreview/:id', reviewController.getAddReview);
 app.post('/addreview', reviewController.postAddReview);
 app.get('/allreviews', reviewController.getAllReviews);
+app.get('/contactus', contactUs.getContactUs);
+app.post('/contactus', contactUs.postContactUs);
 
 
 

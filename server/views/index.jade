@@ -288,29 +288,7 @@ block main
     .productList
       center
         img(src='http://cdn.shopify.com/s/files/1/0695/9547/files/brands.png?9830')
-<<<<<<< HEAD
 
-.container
-  .row
-      each val in products
-        .col-md-4.col-md-offset-2.jumbotron
-          h4 Name:
-           p= val.name
-          h4 Product No:
-            p= val.productno
-          h4 Description:
-            p= val.description
-          h4 Quantity:  
-            p= val.quantity
-          h4 Price:
-            p= val.price
-          if(user)
-              if(user.type ='admin')
-                 form(action="/deleteproduct/"+val._id method="post")
-                    button.btn.btn-warning(type='submit') Delete
-                 form(action="/updateproduct/"+val._id method="post")
-                    button.btn.btn-warning(type='submit') Edit        
-=======
         br
     // footer here
     #footer(style='background-color:#F0F0E9;')
