@@ -54,6 +54,7 @@ console.log('local mongodb opened');
 
 //Routes
 app.get('/', homeController.getIndex);
+app.get('/aboutus', homeController.getAboutUs);
 app.get('/viewcart', homeController.getCart);
 app.get('/signup', userController.getSignUp);
 app.post('/signup', userController.postSignUp);
