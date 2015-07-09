@@ -1,5 +1,10 @@
 var Product= require('../models/Product');
 
+exports.getAboutUs = function(req,res){
+        
+        res.render('aboutus');
+}
+
 exports.getIndex = function(req,res){
         
             Product.find(function(err,products){

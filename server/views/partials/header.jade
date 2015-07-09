@@ -12,14 +12,18 @@ nav#navbarid.navbar.navbar-inverse.navbar-fixed-top.animated.fadeInDown
             |   Lets Shop
 
 
-        form#r.navbar-form.navbar-right(action='/viewcart', method='post')
+        form#r.navbar-form.navbar-right(action='/', method='post')
           
-            a(href='/viewcart')
-              i.fa.fa-shopping-cart.fa-2x
-              
-        |       
-        
-
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='/viewcart')
+                  i.fa.fa-shopping-cart
+                  | My Cart
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='/wishlist')
+                  i.fa.fa-star
+                  | Wish List
 
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           if !user
@@ -46,6 +50,8 @@ nav#navbarid.navbar.navbar-inverse.navbar-fixed-top.animated.fadeInDown
           ul.nav.navbar-nav.navbar-left
             li
               a(href='/') Home
+            li
+              a(href='/aboutus') About Us
             if(user)
               if(user.type=='admin')
                 li
