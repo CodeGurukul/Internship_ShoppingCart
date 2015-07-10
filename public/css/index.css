@@ -1,4 +1,11 @@
-body{font-family: 'Roboto', sans-serif;}
+body{font-family: 'Roboto', sans-serif;padding-top: 67px;}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 34px;
+}
 
 .buy{
 	  background: #023EBE;
