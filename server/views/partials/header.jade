@@ -1,38 +1,35 @@
-nav.navbar.navbar-default.navbar-top
-  .container-fluid
-    // Brand and toggle get grouped for better mobile display
-    .navbar-header
-      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
-        span.sr-only Toggle navigation
-        |         
-        span.icon-bar
-        |         
-        span.icon-bar
-        |         
-        span.icon-bar
-    // Collect the nav links, forms, and other content for toggling
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse(style='margin-bottom:11px;')
-      ul.nav.navbar-nav.navbar-left
-        li(style='margin-top:13px') Connect us
-        li 
-          a(href='#')
-            i.fa.fa-envelope.fa-1x contactusletsshop@gmail.com
-      |       
-      |       
-      ul.nav.navbar-nav.navbar-right
-        li
-          a(href='#')
-            i.fa.fa-facebook-official.fa-1x facebook
-        |         
-        li
-          a(href='#')
-            i.fa.fa-twitter.fa-1x twitter
-        |         
-        li
-          a(href='#')
-            i.fa.fa-linkedin-square.fa-1x LinkedIn
-    // /.navbar-collapse
-  // /.container-fluid
+nav.navbar.navbar-default
+    .container-fluid
+        .row
+          .col-sm-6
+            .contactinfo
+              ul.nav.nav-pills
+                li(style='margin-top:13px;')
+                  p Connect us
+                |                 
+                li
+                  a(href='')
+                    i.fa.fa-envelope
+                    |  contactusletsshop@gmail.com
+          |           
+          .col-sm-6
+            .social-icons.pull-right
+              ul.nav.navbar-nav
+                li
+                  a(href='')
+                    i.fa.fa-facebook
+                |                 
+                li
+                  a(href='')
+                    i.fa.fa-linkedin
+                |                 
+                li
+                  a(href='')
+                    i.fa.fa-twitter
+                |                 
+                li
+                  a(href='')
+                    i.fa.fa-google-plus
 
 nav#navbarid.navbar.navbar-inverse.navbar-fixed-top.animated.fadeInDown
     .container-fluid

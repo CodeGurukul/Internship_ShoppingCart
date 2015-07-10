@@ -121,7 +121,47 @@ hr.hr--clear {
 
 .btn{  margin-right: 11px;}
 
+.social-icons ul li a {
+  border: 0 none;
+  border-radius: 0;
+  color: #696763;
+  padding:0px;
+}
 
-.navbar .brand, .navbar .nav > .facebook li > a:hover {
-    background-color: blue;
+
+.social-icons ul li{
+  display:inline-block;
+}
+
+.social-icons ul li a i {
+  padding: 11px 15px;
+   transition: all 0.9s ease 0s;
+  -moz-transition: all 0.9s ease 0s;
+  -webkit-transition: all 0.9s ease 0s;
+  -o-transition: all 0.9s ease 0s;
+}
+
+.social-icons ul li a i:hover{
+  color: #fff;
+   transition: all 0.9s ease 0s;
+  -moz-transition: all 0.9s ease 0s;
+  -webkit-transition: all 0.9s ease 0s;
+  -o-transition: all 0.9s ease 0s;
+}
+
+
+.fa-facebook:hover {
+  background: #0083C9;
+}
+
+.fa-twitter:hover  {
+  background:#5BBCEC;
+}
+
+.fa-linkedin:hover  {
+  background:#FF4518;
+}
+
+.fa-google-plus:hover  {
+  background:#CE3C2D;
 }
