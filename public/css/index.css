@@ -1,6 +1,5 @@
 body{font-family: 'Roboto', sans-serif;}
 
-
 .buy{
 	  background: #023EBE;
   color: #fff;
@@ -121,3 +120,8 @@ hr.hr--clear {
 }
 
 .btn{  margin-right: 11px;}
+
+
+.navbar .brand, .navbar .nav > .facebook li > a:hover {
+    background-color: blue;
+}
