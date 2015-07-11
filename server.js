@@ -71,6 +71,7 @@ app.post('/addreview', reviewController.postAddReview);
 app.get('/allreviews', reviewController.getAllReviews);
 app.get('/contactus', contactUs.getContactUs);
 app.post('/contactus', contactUs.postContactUs);
+app.get('/dashboard', userController.getDashboard);
 
 
 
