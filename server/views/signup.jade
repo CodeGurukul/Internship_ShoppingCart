@@ -9,6 +9,20 @@ block main
           input.form-control(type='text' placeholder='Name' name="name" style='margin-bottom:10px')
           input.form-control(type='email' placeholder='Email' name="email" style='margin-bottom:10px')
           input.form-control(type='password' placeholder='Password' name="password" style='margin-bottom:10px')
+          .control-group
+            label.control-label(for='gender') Gender:
+            #gender.controls
+              label.radio.inline(for='Male')
+                input#Male(type='radio', name='userGender', value='Male', checked='checked')
+                | Male
+              label.radio.inline(for='Female')
+                input#Female(type='radio', name='userGender', value='Female')
+                | Female
+          .control-group
+            label.control-label(for='Location')
+              #locationField
+                input.form-control(placeholder='Your City', onfocus='geolocate()', type='text', name="userLocation")
+
           button.btn.btn-primary(type='submit') Create
 
         br
