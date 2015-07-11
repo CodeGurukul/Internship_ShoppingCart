@@ -32,8 +32,8 @@ exports.postAddReview = function(req,res){
 exports.getAllReviews = function(req,res){
   Review.find().populate('p_id').exec(function(err, review) {
     console.log(review[1].p_id);
-    res.send(review[1].p_id);
-    
+    res.send(review[1].p_id.name);
+
    });
 }    
 
