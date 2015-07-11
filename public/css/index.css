@@ -1,5 +1,8 @@
 body{font-family: 'Roboto', sans-serif;padding-top: 67px;}
 
+.navbar-default{margin-top: 22px;}
+
+
 .carousel-inner {
   position: relative;
   width: 100%;

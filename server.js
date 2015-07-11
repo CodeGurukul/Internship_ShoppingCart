@@ -69,8 +69,14 @@ app.get('/signout', userController.getSignOut);
 app.get('/addreview/:id', reviewController.getAddReview);
 app.post('/addreview', reviewController.postAddReview);
 app.get('/allreviews', reviewController.getAllReviews);
+<<<<<<< HEAD
 app.get('/contactus', homeController.getContactUs);
 app.post('/contactus', homeController.postContactUs);
+=======
+app.get('/contactus', contactUs.getContactUs);
+app.post('/contactus', contactUs.postContactUs);
+app.get('/dashboard', userController.getDashboard);
+>>>>>>> 73cde672fd716387f7547c2cda5c46b256792cbb
 
 
 

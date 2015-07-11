@@ -50,3 +50,6 @@ exports.getSignOut = function(req,res, next){
   res.redirect('/');
 }
 
+exports.getDashboard = function(req,res,next){
+    res.render('dashboard');
+}

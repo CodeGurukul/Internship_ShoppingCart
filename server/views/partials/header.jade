@@ -85,6 +85,8 @@ nav#navbarid.navbar.navbar-inverse.navbar-fixed-top.animated.fadeInDown
             li
               a(href='/aboutus') About Us
             if(user)
+              li
+                a(href='/dashboard') Your Profile 
               if(user.type=='admin')
                 li
                   a(href='/addproduct') Add Product
