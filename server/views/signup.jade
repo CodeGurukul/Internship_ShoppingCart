@@ -4,36 +4,36 @@ block main
     .row
       .col-md-6.col-md-offset-4
         form(action='/signup' method='post')
-          h3 Create Account
+          h3(style='color:white') Create Account
           hr
           input.form-control(type='text' placeholder='Name' name="name" style='margin-bottom:10px')
           input.form-control(type='email' placeholder='Email' name="email" style='margin-bottom:10px')
           input.form-control(type='password' placeholder='Password' name="password" style='margin-bottom:10px')
-          .control-group
-            label.control-label(for='gender') Gender:
-            #gender.controls
-              label.radio.inline(for='Male')
-                input#Male(type='radio', name='userGender', value='Male', checked='checked')
-                | Male
-              label.radio.inline(for='Female')
-                input#Female(type='radio', name='userGender', value='Female')
-                | Female
-          .control-group
-            label.control-label(for='Location')
-              #locationField
-                input.form-control(placeholder='Your City', onfocus='geolocate()', type='text', name="userLocation")
+          //- .control-group
+          //-   label.control-label(for='gender' style='color:white') Gender:
+          //-   #gender.controls
+          //-     label.radio.inline(for='Male')
+          //-       input#Male(type='radio', name='userGender', value='Male', checked='checked', style='color:white')
+          //-       | Male
+          //-     label.radio.inline(for='Female')
+          //-       input#Female(type='radio', name='userGender', value='Female', style='color:white')
+          //-       | Female
+          //- .control-group
+          //-   label.control-label(for='Location')
+          //-     #locationField
+          //-       input.form-control(placeholder='Your City', onfocus='geolocate()', type='text', name="userLocation")
 
           button.btn.btn-primary(type='submit') Create
 
         br
-        h4 Don't wanna go through the pain?
+        h4(style='color:white') Don't wanna go through the pain?
         a.col-md-6.col-md-offset-3.btn.btn-primary(href='/auth/facebook') 
           .login-icon
             i.fa.fa-facebook 
             |&nbspLogin with Facebook
         br
         br
-        a.col-md-6.col-md-offset-3.btn.btn-danger(href='/auth/google') 
+        a.col-md-6.col-md-offset-3.btn.btn-danger(href='/auth/google' style='margin-bottom:35px') 
           .login-icon
             i.fa.fa-google-plus 
             |&nbspLogin with Google+

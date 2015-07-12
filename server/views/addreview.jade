@@ -5,7 +5,7 @@ block main
 						.col-md-6.col-md-offset-4
 							
 								form(action='/addreview' method='post')
-									h4 Reviews
+									h4(style='color:white') Reviews
 
 									input.form-control(type='text' value='#{name}' name="pid")
 
@@ -13,4 +13,4 @@ block main
 									input.form-control(type='value' placeholder='Body' name="text1")
 									input.form-control(type='value' placeholder='Rating(0-5)' name="rating")
 
-									button.btn.btn-default(type='submit') Submit
+									button.btn.btn-info(type='submit') Submit

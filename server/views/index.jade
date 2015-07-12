@@ -5,7 +5,7 @@ block main
 
     
     // carousel here
-    #myCarousel.carousel.slide.animated.lightSpeedIn(style='margin-top:-4px;')
+    #myCarousel.carousel.slide.animated.lightSpeedIn(style='margin-top:-4px; margin-bottom:50px')
       // Indicators
       ol.carousel-indicators
         li.active(data-target='#myCarousel', data-slide-to='0')
@@ -40,8 +40,8 @@ block main
       a.carousel-control.right(href='#myCarousel', data-slide='next')
         span.icon
     // div Carousel ends here
-    .headimg
-      center
+    .heading(style="color:white")
+      center(style='margin-bottom:50px')
         i.fa.fa-binoculars.fa-4x
         h3 Lets Shop
     .container
@@ -171,32 +171,35 @@ block main
             .container
 
                each product in products
-                .col-md-2.col-md-offset-1.text-center.jumbotron
-                  
-                    h3 
-                    p=product.name
-                    p=product.description
-                    p=product.price
-                    a.btn.btn-lg.btn-success(href='#', data-toggle='modal', data-target='#basicModal'+product.id) BUY
-                    .id.modal.fade(tabindex='-1', id='basicModal'+product.id, role='dialog', aria-labelledby='basicModal', aria-hidden='true')
-                      .modal-dialog
-                        .modal-content
-                          .modal-header
-                            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-                            h4#myModalLabel.modal-title Product details
-                          .modal-body
+                .col-md-2.col-md-offset-1.text-center
+                  .prod(style='color:white')
+                    h3
+                      p=product.name
+                      p=product.description 
+                      | Price: $#{product.price} 
+                      
+                     
+                      a.btn.btn-lg.btn-success(href='#', data-toggle='modal', data-target='#basicModal'+product.id style='margin-top:5px') BUY
+                      .id.modal.fade(tabindex='-1', id='basicModal'+product.id, role='dialog', aria-labelledby='basicModal', aria-hidden='true')
+                        .modal-dialog
+                          .modal-content
+                            .mod(style='color:black')
+                              .modal-header
+                                button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                                h4#myModalLabel.modal-title Product details
+                              .modal-body
 
-                               .row
-                                  .col-md-6.col-md-offset-4.jumbotron
+                                   .row
+                                      .col-md-6.col-md-offset-4.jumbotron
 
-                                    p= product.name
-                                    p= product.productno
-                                    p= product.description
-                                    p= product.quantity
-                                    p= product.price
-                          .modal-footer
-                            button.btn.btn-default(type='button', data-dismiss='modal') Buy Now
-                            a.button.btn.btn-primary(href='/cart',type='button') Add to cart
+                                        p= product.name
+                                        p= product.productno
+                                        p= product.description
+                                        p= product.quantity
+                                        p= product.price
+                              .modal-footer
+                                button.btn.btn-default(type='button', data-dismiss='modal') Buy Now
+                                a.button.btn.btn-primary(href='/cart',type='button') Add to cart
 
        
 
