@@ -3,9 +3,9 @@ block main
   
             
 
-    a.btn.btn-info(href="/contactus") Contact Us
+    
     // carousel here
-    #myCarousel.carousel.slide.animated.lightSpeedIn(style='margin-top:-34px;')
+    #myCarousel.carousel.slide.animated.lightSpeedIn(style='margin-top:-4px;')
       // Indicators
       ol.carousel-indicators
         li.active(data-target='#myCarousel', data-slide-to='0')
@@ -42,7 +42,8 @@ block main
     // div Carousel ends here
     .headimg
       center
-        img(src='http://webneel.com/sites/default/files/images/manual/logo/28-brilliant-online-shopping-cart-store-logo.gif')
+        i.fa.fa-binoculars.fa-4x
+        h3 Lets Shop
     .container
       .row
         .col-md-2
@@ -50,7 +51,7 @@ block main
             nav.sidebar-module
               .section-header
                 h4
-                  b SHOP FOR
+                  b(style='color:white') SHOP FOR
                 hr.hr--clear
               |                 
               |               
@@ -120,7 +121,7 @@ block main
             nav.sidebar-module
               .section-header
                 h4
-                  b SHOP FOR VENDOR
+                  b(style='color:white') SHOP FOR VENDOR
                 hr.hr--clear
               |               
               ul.sidebar-module-list
@@ -201,10 +202,10 @@ block main
 
     // Product Vendor list
     .section-header
-      h2.section-header-title.h4(style='margin-top: 35px;text-align: center;')
+      h2.section-header-title.h4(style='margin-top: 35px;text-align: center; color:white; margin-bottom:10px')
         b We offer products from
     hr.hr--clear(style='width: 84%;')
     // Container for products
     .productList
       center
-        img(src='http://cdn.shopify.com/s/files/1/0695/9547/files/brands.png?9830')
+        img(src='http://cdn.shopify.com/s/files/1/0695/9547/files/brands.png?9830' style='margin-bottom:15px')
