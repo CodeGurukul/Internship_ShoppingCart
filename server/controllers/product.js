@@ -40,9 +40,23 @@ exports.postAddProduct = function(req,res){
 
 exports.getViewProduct = function(req,res){
 
-        Product.find(function(err,products){
-            res.render('viewproduct',{products:products});
-        });
+        // Product.find(function(err,reviews){
+        //     res.render('viewproduct',{products:products, reviews:reviews});
+        // });
+        Product.find({_id:req.product.id},function(err,products)
+{
+if(err)
+  console.log(err);
+else
+  Products.find({p_id:req.product.id},function(err,reviews)
+{
+  res.render('viewproduct',{products:products,reviews:reviews});
+}
+
+  );
+   
+
+ } );
 
     }
 
