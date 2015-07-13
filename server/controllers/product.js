@@ -62,8 +62,14 @@ exports.getViewProduct = function(req,res){
 
 exports.postDeleteProduct = function(req,res){
         Product.remove({ _id:req.params.id }, function (err) {
-            Product.find(function(err,products){
-            res.render('viewproduct',{products:products});
+            // Product.find(function(err,products){
+            // res.render('viewproduct',{products:products});
+            res.redirect('/viewproduct');
         });
-    });
+    // });
+}
+
+exports.getViewCart = function(req,res){
+    console.log(req.params.id);
+    res.render('viewcart',{name : req.params.id});
 }

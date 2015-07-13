@@ -69,6 +69,7 @@ app.get('/signout', userController.getSignOut);
 app.get('/addreview/:id', reviewController.getAddReview);
 app.post('/addreview', reviewController.postAddReview);
 app.get('/allreviews', reviewController.getAllReviews);
+app.get('/viewcart/:id' , productController.getViewCart);
 
 app.get('/contactus', homeController.getContactUs);
 app.post('/contactus', homeController.postContactUs);

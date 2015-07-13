@@ -38,6 +38,8 @@ block main
           //-       p= val.p_id
           if(user)
               if(user.type ='admin')
-                 a.btn.btn-primary(href="/deleteproduct/#{val.id}") Delete
+                 form(action="/deleteproduct/"+val._id method="post")
+                    button.btn.btn-primary(type='submit') Delete  
+                 //- a.btn.btn-primary(href="/deleteproduct/"+val._id) Delete
                  a.btn.btn-warning(href="/updateproduct/#{val.id}") Edit
                  a.btn.btn-info(href="/addreview/#{val.id}") Add Review
