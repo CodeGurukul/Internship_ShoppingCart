@@ -69,7 +69,11 @@ exports.postDeleteProduct = function(req,res){
     // });
 }
 
-exports.getViewCart = function(req,res){
-    console.log(req.params.id);
-    res.render('viewcart',{name : req.params.id});
-}
+// exports.getViewCart = function(req,res){
+//     Order.find().populate('p_id').exec(function(err, re) {
+//         console.log(review[1].p_id);
+//         res.send(review[1].p_id.name);
+//     });
+//     console.log(req.params.id);
+//     res.render('viewcart',{name : req.params.id});
+// }

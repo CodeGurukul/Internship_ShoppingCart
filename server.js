@@ -12,14 +12,14 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var User = require('./server/models/User');
 var Review = require('./server/models/Review');
 var Product = require('./server/models/Product');
-
+var Order = require('./server/models/Order');
 var passportConf = require('./server/config/passport');
 
 
 //Require Controllers
 var homeController = require('./server/controllers/home');
 var userController = require('./server/controllers/user');
-
+var orderController = require('./server/controllers/order');
 var productController = require('./server/controllers/product');
 var reviewController = require('./server/controllers/review');
 
@@ -69,8 +69,8 @@ app.get('/signout', userController.getSignOut);
 app.get('/addreview/:id', reviewController.getAddReview);
 app.post('/addreview', reviewController.postAddReview);
 app.get('/allreviews', reviewController.getAllReviews);
-app.get('/viewcart/:id' , productController.getViewCart);
-
+app.get('/viewcart/:id' , orderController.getViewCart);
+app.post('/viewcart/:id', orderController.postViewCart);
 app.get('/contactus', homeController.getContactUs);
 app.post('/contactus', homeController.postContactUs);
 app.get('/dashboard', userController.getDashboard);

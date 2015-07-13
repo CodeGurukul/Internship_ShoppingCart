@@ -200,6 +200,8 @@ block main
                               .modal-footer
                                 button.btn.btn-default(type='button', data-dismiss='modal') Buy Now
                                 a.button.btn.btn-primary(href='/viewcart/#{product.id}',type='button') Add to cart
+                                form(action="/viewcart/"+product._id method="post")
+                                  button.btn.btn-warning(type='submit') Add
 
        
 
